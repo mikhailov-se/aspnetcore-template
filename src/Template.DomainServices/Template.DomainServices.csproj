@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="MediatR"/>
+        <PackageReference Include="Polly"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Template.ExternalServices\Template.ExternalServices.csproj"/>
+        <ProjectReference Include="..\Template.Repository\Template.Repository.csproj"/>
+    </ItemGroup>
+
+
+</Project>

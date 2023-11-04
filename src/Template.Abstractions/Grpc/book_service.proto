@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package Template;
+
+option csharp_namespace = "Template.Abstractions";
+
+service BooksService {
+  rpc GetBook (GetBookQuery) returns (GetBookQueryResponse);
+}
+
+message GetBookQuery {
+  int64 bookId = 1;
+}
+
+message GetBookQueryResponse {
+  BookDto book = 1;
+}
+
+message BookDto {
+}

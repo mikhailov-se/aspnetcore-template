@@ -1,0 +1,31 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: template
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  zookeeper:
+    image: zookeeper:3.6
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    links:
+      - zookeeper:zookeeper
+    environment:
+      DOCKER_API_VERSION: 1.22
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: >-
+        template-topic:1:1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "9092:9092"

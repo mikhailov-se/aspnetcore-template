@@ -1,0 +1,3 @@
+namespace Template.DomainServices.BookAuthors.Commands.UpdateBookAuthors.Contracts;
+
+public sealed record UpdateBookAuthorCommandInternalResponse;
